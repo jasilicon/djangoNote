@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkeuoNotes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    boxShadow: {
+                        'skeuo-flat': '8px 8px 16px #c4c4c4, -8px -8px 16px #ffffff',
+                        'skeuo-pressed': 'inset 6px 6px 12px #c4c4c4, inset -6px -6px 12px #ffffff',
+                        'skeuo-btn': 'inset 0px 2px 0px rgba(255,255,255,0.4), 4px 4px 8px #a8a8a8',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Additional physical textures */
+        body { background-color: #e2e8f0; } /* Tailwind gray-200 */
+        .skeuo-gradient-bg { background: linear-gradient(145deg, #f3f4f6, #d1d5db); }
+        .skeuo-text-engraved {
+            color: #6b7280;
+            text-shadow: 1px 1px 1px #ffffff, -1px -1px 1px #d1d5db;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-gray-800 font-sans antialiased p-8">
+    <div class="max-w-5xl mx-auto">
+        <header class="mb-10 flex justify-between items-center">
+            <h1 class="text-4xl font-bold skeuo-text-engraved tracking-tight">Notebook</h1>
+            <a href="{% url 'one:note_create' %}" class="px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-b from-orange-400 to-orange-600 border border-orange-700 shadow-skeuo-btn active:shadow-skeuo-pressed active:translate-y-1 transition-all duration-150">
+                + New Note
+            </a>
+        </header>
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+</body>
+</html>
