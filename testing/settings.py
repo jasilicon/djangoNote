@@ -15,7 +15,8 @@ from dotenv import load_dotenv
 
 # Load environment variables from your .env file
 load_dotenv()
-
+LOGIN_REDIRECT_URL = 'one:note_list'
+LOGOUT_REDIRECT_URL = 'login'
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
